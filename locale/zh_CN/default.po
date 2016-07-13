@@ -1,0 +1,28 @@
+msgid "Clear OK"
+msgstr "清理成功"
+
+msgid "Template {0} does not exists"
+msgstr "模板{0}不存在"
+
+msgid "Argument [{0}] should be provided"
+msgstr "需要提供参数{0}"
+
+msgid "File [{0}] write failed"
+msgstr "文件{0}写入失败"
+
+msgid "The code type you want"
+msgstr "你想生成代码类型"
+
+msgid "The Application you want generate"
+msgstr "你想生成代码的应用"
+
+msgid "Type [{0}] is not supported"
+msgstr "不支持{0}类型"
+
+msgid "Application [{0}] does not exists"
+msgstr "应用{0}不存在"
+
+msgid "Code generate ok"
+msgstr "代码生成完成"
+
+

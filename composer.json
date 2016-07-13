@@ -1,0 +1,22 @@
+{
+    "name": "slince/command",
+    "description": "Slince Console helper",
+    "type": "project",
+    "require": {
+        "symfony/console": "^3.1",
+        "cakephp/i18n": "^3.0",
+        "cakephp/utility": "^3.0",
+        "slince/slince": "*@dev"
+    },
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "slince",
+            "email": "taosikai@yeah.net"
+        }
+    ],
+    "autoload": {
+        "Slince\\Command\\": "./src"
+    },
+    "minimum-stability": "stable"
+}
