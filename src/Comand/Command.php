@@ -10,16 +10,6 @@ use Symfony\Component\Console\Command\Command as BaseCommand;
 class Command extends BaseCommand
 {
     /**
-     * @var Kernel
-     */
-    protected $kernel;
-
-    function __construct(Kernel $kernel)
-    {
-        $this->kernel = $kernel;
-    }
-
-    /**
      * 获取服务容器
      * @return Container
      */
@@ -34,5 +24,13 @@ class Command extends BaseCommand
     function getApplication()
     {
         return $this->getApplication();
+    }
+
+    /**
+     * @return Kernel
+     */
+    function getKernel()
+    {
+        return $this->getApplication()->getKernel();
     }
 }

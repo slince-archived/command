@@ -1,6 +1,10 @@
 <?php
 namespace Slince\Command;
 
+use App\AppKernel;
+use Slince\Command\Command\CacheFlushCommand;
+use Slince\Command\Command\CodeMakeCommand;
+
 class CommandUI
 {
     /**
@@ -15,7 +19,10 @@ class CommandUI
      */
     static function createCommands()
     {
-        return [];
+        return [
+            new CacheFlushCommand(),
+            new CodeMakeCommand()
+        ];
     }
 
     /**
@@ -24,10 +31,10 @@ class CommandUI
      */
     static function main()
     {
-        $application = new Application();
+        $kernel = new AppKernel();
+        $application = new Application($kernel);
         $application->addCommands(self::createCommands());
         $application->setDefaultCommand(self::DEFAULT_COMMAND_NAME);
         $application->run();
     }
-}
 }

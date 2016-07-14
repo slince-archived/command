@@ -16,7 +16,12 @@
         }
     ],
     "autoload": {
-        "Slince\\Command\\": "./src"
+        "psr-4": {
+            "Slince\\Command\\": "./src"
+        }
     },
+    "bin": [
+        "slince"
+    ],
     "minimum-stability": "stable"
 }

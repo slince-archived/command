@@ -13,6 +13,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class CacheFlushCommand extends Command
 {
+    const NAME = 'flush';
+
+    function configure()
+    {
+        $this->setName(static::NAME);
+    }
+
     function execute(InputInterface $input, OutputInterface $output)
     {
         $this->getContainer()->get('cache')->flush();

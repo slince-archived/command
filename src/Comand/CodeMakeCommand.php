@@ -46,8 +46,11 @@ class CodeMakeCommand extends Command
         self::TYPE_MODEL => 'Model'
     ];
 
+    const NAME = 'make';
+
     function configure()
     {
+        $this->setName(static::NAME);
         $this->addArgument('type', InputArgument::REQUIRED, __("The code type you want"));
         $this->addOption('app', 'a', InputOption::VALUE_OPTIONAL, __("The Application you want generate"));
     }
@@ -61,7 +64,7 @@ class CodeMakeCommand extends Command
             throw new InvalidArgumentException(__("Type [{0}] is not supported", $type));
         }
         if (!empty($applicationName)) {
-            $application = $this->kernel->getApplication($applicationName);
+            $application = $this->getKernel()->getApplication($applicationName);
             if (is_null($applicationName)) {
                 throw new InvalidArgumentException(__("Application [{0}] does not exists", $applicationName));
             }
@@ -73,7 +76,7 @@ class CodeMakeCommand extends Command
 
     function getFilePath($name, $type, ApplicationInterface $application = null)
     {
-        $basePath = (is_null($application) ? $this->kernel->getRootPath() : $application->getRootPath()) . '/src';
+        $basePath = (is_null($application) ? $this->getKernel()->getRootPath() : $application->getRootPath()) . '/src';
         $classifyName = Inflector::camelize($name);
         switch ($type) {
             case static::TYPE_CONTROLLER:
@@ -94,7 +97,7 @@ class CodeMakeCommand extends Command
      */
     function buildArguments(ApplicationInterface $application = null)
     {
-        $namespace = is_null($application) ? $this->kernel->getNamespace() : $application->getNamespace();
+        $namespace = is_null($application) ? $this->getKernel()->getNamespace() : $application->getNamespace();
         return [
             'namespace' => $namespace
         ];
